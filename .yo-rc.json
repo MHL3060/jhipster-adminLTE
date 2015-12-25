@@ -1,0 +1,24 @@
+{
+  "generator-jhipster": {
+    "baseName": "myFirst",
+    "packageName": "local.tux.app",
+    "packageFolder": "local/tux/app",
+    "authenticationType": "session",
+    "hibernateCache": "hazelcast",
+    "clusteredHttpSession": "hazelcast",
+    "websocket": "spring-websocket",
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "mysql",
+    "searchEngine": "elasticsearch",
+    "useSass": true,
+    "buildTool": "maven",
+    "frontendBuilder": "grunt",
+    "enableTranslation": true,
+    "enableSocialSignIn": false,
+    "rememberMeKey": "e76a2e5365e9ea616e84ffed412c6e8ec99e68d8",
+    "testFrameworks": [
+      "gatling"
+    ]
+  }
+}
