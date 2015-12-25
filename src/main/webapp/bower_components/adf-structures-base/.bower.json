@@ -31,6 +31,5 @@
   },
   "_source": "git://github.com/angular-dashboard-framework/adf-structures-base.git",
   "_target": "~0.1.0",
-  "_originalSource": "adf-structures-base",
-  "_direct": true
+  "_originalSource": "adf-structures-base"
 }

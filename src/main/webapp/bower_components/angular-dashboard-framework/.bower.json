@@ -55,6 +55,5 @@
   },
   "_source": "git://github.com/angular-dashboard-framework/angular-dashboard-framework.git",
   "_target": "~0.10.0",
-  "_originalSource": "angular-dashboard-framework",
-  "_direct": true
+  "_originalSource": "angular-dashboard-framework"
 }

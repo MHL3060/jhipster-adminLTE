@@ -6,7 +6,7 @@
   "dependencies": {
     "angular": "1.4.5",
     "angular-aria": "1.4.5",
-    "angular-bootstrap": "0.13.3",
+    "angular-bootstrap": "0.14.3",
     "angular-cache-buster": "0.4.3",
     "angular-cookies": "1.4.5",
     "angular-dynamic-locale": "0.1.27",
@@ -40,6 +40,10 @@
   "resolutions": {
     "angular": "1.4.5",
     "angular-cookies": "1.4.5",
-    "jquery": "2.1.4"
+    "jquery": "2.1.4",
+    "angular-bootstrap": "^0.14.3",
+    "angular-dashboard-framework": "~0.10.0",
+    "Sortable": "1.2.1",
+    "bootstrap": "3.3.5"
   }
 }
