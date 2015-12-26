@@ -168,7 +168,7 @@ angular.module('myFirstApp', ['LocalStorageModule', 'tmh.dynamicLocale', 'pascal
       }
     };
   })
-    .config(['$urlMatcherFactoryProvider', function($urlMatcherFactory) {
+    .config(['$urlMatcherFactoryProvider','localStorageServiceProvider', function($urlMatcherFactory, localStorageServiceProvider) {
         $urlMatcherFactory.type('boolean', {
             name : 'boolean',
             decode: function(val) { return val == true ? true : val == "true" ? true : false },
@@ -177,4 +177,5 @@ angular.module('myFirstApp', ['LocalStorageModule', 'tmh.dynamicLocale', 'pascal
             is: function(val) { return [true,false,0,1].indexOf(val) >= 0 },
             pattern: /bool|true|0|1/
         });
+        localStorageServiceProvider.setPrefix('adf');
     }]);;
