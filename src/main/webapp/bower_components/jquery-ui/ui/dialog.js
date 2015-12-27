@@ -1,5 +1,5 @@
 /*!
- * jQuery UI Dialog 1.11.4
+ * jQuery UI Dialog 1.11.3
  * http://jqueryui.com
  *
  * Copyright jQuery Foundation and other contributors
@@ -30,7 +30,7 @@
 }(function( $ ) {
 
 return $.widget( "ui.dialog", {
-	version: "1.11.4",
+	version: "1.11.3",
 	options: {
 		appendTo: "body",
 		autoOpen: true,
@@ -150,7 +150,6 @@ return $.widget( "ui.dialog", {
 		var next,
 			originalPosition = this.originalPosition;
 
-		this._untrackInstance();
 		this._destroyOverlay();
 
 		this.element
@@ -229,10 +228,10 @@ return $.widget( "ui.dialog", {
 
 	_moveToTop: function( event, silent ) {
 		var moved = false,
-			zIndices = this.uiDialog.siblings( ".ui-front:visible" ).map(function() {
+			zIndicies = this.uiDialog.siblings( ".ui-front:visible" ).map(function() {
 				return +$( this ).css( "z-index" );
 			}).get(),
-			zIndexMax = Math.max.apply( null, zIndices );
+			zIndexMax = Math.max.apply( null, zIndicies );
 
 		if ( zIndexMax >= +this.uiDialog.css( "z-index" ) ) {
 			this.uiDialog.css( "z-index", zIndexMax + 1 );

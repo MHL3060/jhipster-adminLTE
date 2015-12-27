@@ -13,12 +13,13 @@
         <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
         <link href="bower_components/adf-widget-clock/dist/adf-widget-clock.min.css" rel="stylesheet">
         <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link href="bower_components/angular-dashboard-framework/dist/angular-dashboard-framework.min.css" rel="stylesheet">
-
+        
         <!-- endbower -->
         <!-- endbuild -->
         <!-- build:css assets/styles/main.css -->
-        <link rel="stylesheet" href="assets/styles/main.css">
+        <!--<link rel="stylesheet" href="assets/styles/main.css">-->
+        <link href="widgets/angular-dashboard-framework.min.css" rel="stylesheet">
+
         <!-- endbuild -->
     </head>
     <body ng-app="myFirstApp">
@@ -76,10 +77,15 @@
         <script src="bower_components/adf-structures-base/dist/adf-structures-base.min.js"></script>
         <script src="bower_components/moment/moment.js"></script>
         <script src="bower_components/adf-widget-clock/dist/adf-widget-clock.min.js"></script>
+        <script src="bower_components/angular-markdown-directive/markdown.js"></script>
+        <script src="bower_components/adf-widget-news/dist/adf-widget-news.min.js"></script>
+        <script src="bower_components/adf-widget-markdown/dist/adf-widget-markdown.min.js"></script>
         <script src="bower_components/Sortable/Sortable.js"></script>
         <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-        <script src="bower_components/angular-dashboard-framework/dist/angular-dashboard-framework.js"></script>
-
+        <script src="bower_components/adf-widget-weather/dist/adf-widget-weather.js"></script>
+        <!--<script src="bower_components/angular-dashboard-framework/dist/angular-dashboard-framework.js"></script>-->
+        <script src="widgets/angular-dashboard-framework.min.js"></script>
+        
         <!-- endbuild -->
 
 
@@ -165,6 +171,5 @@
     <script src="scripts/app/admin/tracker/tracker.controller.js"></script>
     <script src="scripts/components/tracker/tracker.service.js"></script>
     <!-- endbuild -->
-
 </body>
 </html>

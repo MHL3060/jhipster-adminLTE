@@ -3,7 +3,7 @@
 angular.module('myFirstApp', ['LocalStorageModule', 'tmh.dynamicLocale', 'pascalprecht.translate', 
                'ui.bootstrap', // for modal dialogs
     'ngResource', 'ui.router', 'ngCookies', 'ngAria', 'ngCacheBuster', 'ngFileUpload', 'infinite-scroll',
-    'angular-loading-bar', 'adf','adf.structures.base', 'adf.widget.clock'])
+    'angular-loading-bar', 'adf','adf.structures.base', 'adf.widget.clock','adf.widget.markdown', 'adf.widget.news', 'adf.widget.weather'])
 
     .run(function ($rootScope, $location, $window, $http, $state, $translate, Language, Auth, Principal, ENV, VERSION) {
         // update the window title using params in the following
