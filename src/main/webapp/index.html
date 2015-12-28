@@ -13,39 +13,70 @@
         <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
         <link href="bower_components/adf-widget-clock/dist/adf-widget-clock.min.css" rel="stylesheet">
         <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-        
+
         <!-- endbower -->
         <!-- endbuild -->
         <!-- build:css assets/styles/main.css -->
         <!--<link rel="stylesheet" href="assets/styles/main.css">-->
+        <link rel="stylesheet" href="style/tunet.css">
         <link href="widgets/angular-dashboard-framework.min.css" rel="stylesheet">
 
+        <!-- Theme style -->
+        <link rel="stylesheet" href="bower_components/AdminLTE/dist/css/AdminLTE.min.css">
+        <!-- AdminLTE Skins. Choose a skin from the css/skins
+             folder instead of downloading all of them to reduce the load. -->
+        <link rel="stylesheet" href="bower_components/AdminLTE/dist/css/skins/_all-skins.min.css">
+        <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
         <!-- endbuild -->
     </head>
-    <body ng-app="myFirstApp">
-        <!--[if lt IE 9]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+    <body ng-app="myFirstApp" class="hold-transition skin-blue sidebar-mini">
+
         <div ng-show="{{ENV === 'dev'}}" class="development" ng-cloak=""></div>
+        <header  class="main-header">
+
+            <div ui-view="navbar" ng-cloak=""></div>
+
+        </header>
+        <aside class="main-sidebar">
+
+
+        </aside>
+
+        <div class="content-wrapper">
+            <section class="content">
+                <div class="well" ui-view="content"></div>
+            </section>
+            <footer class="main-footer">
+                <div class="pull-right hidden-xs">
+                    <b>Version</b> 2.3.2
+                </div>
+                <strong>Copyright &copy; 2014-2015 <a href="http://www.google.com">Ben Li</a>.</strong> All rights
+                reserved.
+            </footer>
+
+        </div>
+
         <div ui-view="navbar" ng-cloak=""></div>
-        <div class="container">
-            <div class="well" ui-view="content"></div>
+
+
+         <div class="container-fluid ">
+
 
             <div class="footer">
                 <p translate="footer">This is your footer</p>
             </div>
         </div>
 
-        <!-- Google Analytics: uncomment and change UA-XXXXX-X to be your site's ID.
-        <script>
-            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-            e.src='//www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X');ga('send','pageview');
-        </script>-->
 
+
+        <!--
+
+        <!-- side bar -->
+
+        <!-- end side bar -->
+          <!--
+
+        -->
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->
         <script src="bower_components/modernizr/modernizr.js"></script>
@@ -73,7 +104,7 @@
         <script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
         <script src="bower_components/sockjs-client/dist/sockjs.js"></script>
         <script src="bower_components/stomp-websocket/lib/stomp.min.js"></script>
-        
+
         <script src="bower_components/adf-structures-base/dist/adf-structures-base.min.js"></script>
         <script src="bower_components/moment/moment.js"></script>
         <script src="bower_components/adf-widget-clock/dist/adf-widget-clock.min.js"></script>
@@ -83,9 +114,10 @@
         <script src="bower_components/Sortable/Sortable.js"></script>
         <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
         <script src="bower_components/adf-widget-weather/dist/adf-widget-weather.js"></script>
+
         <!--<script src="bower_components/angular-dashboard-framework/dist/angular-dashboard-framework.js"></script>-->
         <script src="widgets/angular-dashboard-framework.min.js"></script>
-        
+        <script src="bower_components/AdminLTE/dist/js/app.min.js"></script>
         <!-- endbuild -->
 
 
