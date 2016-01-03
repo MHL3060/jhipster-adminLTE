@@ -1,11 +1,13 @@
-<nav class="navbar navbar-default" role="navigation">
-    <a class="navbar-brand" href="#/">
-        <span translate="global.title">jhipster</span>
-        <span class="logo-mini" class="navbar-version"></span>
+<div ng-if="isAuthenticated()">
+    <header  class="main-header">
+
+    <a class="logo" href="#/">
+
+        <span class="logo-mini" class="navbar-version">BEN</span>
         <span class="logo-lg">{{VERSION}}</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
-
+    <nav class="navbar navbar-default" role="navigation">
         <!-- Sidebar toggle button-->
         <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
             <span class="sr-only">Toggle navigation</span>
@@ -113,4 +115,6 @@
                 </li>
             </ul>
         </div>
-</nav>
+    </nav>
+        </header>
+</div>

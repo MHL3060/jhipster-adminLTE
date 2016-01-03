@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myFirstApp', ['LocalStorageModule', 'tmh.dynamicLocale', 'pascalprecht.translate', 
+angular.module('myFirstApp', ['LocalStorageModule', 'tmh.dynamicLocale', 'pascalprecht.translate',
                'ui.bootstrap', // for modal dialogs
     'ngResource', 'ui.router', 'ngCookies', 'ngAria', 'ngCacheBuster', 'ngFileUpload', 'infinite-scroll',
     'angular-loading-bar', 'adf','adf.structures.base', 'adf.widget.clock','adf.widget.markdown', 'adf.widget.news', 'adf.widget.weather'])
@@ -19,7 +19,7 @@ angular.module('myFirstApp', ['LocalStorageModule', 'tmh.dynamicLocale', 'pascal
                 $window.document.title = title;
             });
         };
-        
+
         $rootScope.ENV = ENV;
         $rootScope.VERSION = VERSION;
         $rootScope.$on('$stateChangeStart', function (event, toState, toStateParams) {
@@ -29,12 +29,12 @@ angular.module('myFirstApp', ['LocalStorageModule', 'tmh.dynamicLocale', 'pascal
             if (Principal.isIdentityResolved()) {
                 Auth.authorize();
             }
-            
+
             // Update the language
             Language.getCurrent().then(function (language) {
                 $translate.use(language);
             });
-            
+
         });
 
         $rootScope.$on('$stateChangeSuccess',  function(event, toState, toParams, fromState, fromParams) {
@@ -55,11 +55,11 @@ angular.module('myFirstApp', ['LocalStorageModule', 'tmh.dynamicLocale', 'pascal
             }
             updateTitle(titleKey);
         });
-        
+
         // if the current translation changes, update the window title
         $rootScope.$on('$translateChangeSuccess', function() { updateTitle(); });
 
-        
+
         $rootScope.back = function() {
             // If previous state is 'activate' or do not exist go to 'home'
             if ($rootScope.previousStateName === 'activate' || $state.get($rootScope.previousStateName) === null) {
@@ -87,6 +87,10 @@ angular.module('myFirstApp', ['LocalStorageModule', 'tmh.dynamicLocale', 'pascal
                 'navbar@': {
                     templateUrl: 'scripts/components/navbar/navbar.html',
                     controller: 'NavbarController'
+                },
+                'sidebar@' : {
+                    templateUrl: 'scripts/components/sidebar/sidebar.html',
+                    controller: 'SidebarController'
                 }
             },
             resolve: {
@@ -104,7 +108,7 @@ angular.module('myFirstApp', ['LocalStorageModule', 'tmh.dynamicLocale', 'pascal
         $httpProvider.interceptors.push('errorHandlerInterceptor');
         $httpProvider.interceptors.push('authExpiredInterceptor');
         $httpProvider.interceptors.push('notificationInterceptor');
-        
+
         // Initialize angular-translate
         $translateProvider.useLoader('$translatePartialLoader', {
             urlTemplate: 'i18n/{lang}/{part}.json'
@@ -118,7 +122,7 @@ angular.module('myFirstApp', ['LocalStorageModule', 'tmh.dynamicLocale', 'pascal
         tmhDynamicLocaleProvider.localeLocationPattern('bower_components/angular-i18n/angular-locale_{{locale}}.js');
         tmhDynamicLocaleProvider.useCookieStorage();
         tmhDynamicLocaleProvider.storageKey('NG_TRANSLATE_LANG_KEY');
-        
+
     })
       .service('storeService', function($http, $q){
     return {

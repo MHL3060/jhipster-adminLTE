@@ -5,7 +5,7 @@ angular.module('myFirstApp')
         $scope.isAuthenticated = Principal.isAuthenticated;
         $scope.$state = $state;
         $scope.inProduction = ENV === 'prod';
-
+        $scope.showMenu = Principal.isAuthenticated();
         $scope.logout = function () {
             Auth.logout();
             $state.go('home');

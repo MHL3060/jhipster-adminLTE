@@ -23,19 +23,3 @@ angular.module('myFirstApp')
                 }
             });
     });
-
-
-/*
-
-
-.when('/boards/:id', {
-        controller: 'dashboardCtrl',
-        controllerAs: 'dashboard',
-        templateUrl: 'partials/dashboard.html',
-        resolve: {
-          data: function($route, storeService){
-            return storeService.get($route.current.params.id);
-          }
-        }
-      })
-*/

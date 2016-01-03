@@ -19,7 +19,7 @@
         <!-- build:css assets/styles/main.css -->
         <!--<link rel="stylesheet" href="assets/styles/main.css">-->
         <link rel="stylesheet" href="style/tunet.css">
-        <link href="widgets/angular-dashboard-framework.min.css" rel="stylesheet">
+        <link href="bower_components/angular-dashboard-framework/dist/angular-dashboard-framework.min.css" rel="stylesheet">
 
         <!-- Theme style -->
         <link rel="stylesheet" href="bower_components/AdminLTE/dist/css/AdminLTE.min.css">
@@ -30,44 +30,27 @@
         <!-- endbuild -->
     </head>
     <body ng-app="myFirstApp" class="hold-transition skin-blue sidebar-mini">
-
+        <div class="wrappr" ui-view="wrapper">
         <div ng-show="{{ENV === 'dev'}}" class="development" ng-cloak=""></div>
-        <header  class="main-header">
+            <div ui-view="navbar"   ng-cloak="">
 
-            <div ui-view="navbar" ng-cloak=""></div>
+                </div>
+            <div ui-view="sidebar" ng-cloak="">
 
-        </header>
-        <aside class="main-sidebar">
+            </div>
 
-
-        </aside>
 
         <div class="content-wrapper">
-            <section class="content">
+            <section class="content-fluid">
                 <div class="well" ui-view="content"></div>
             </section>
-            <footer class="main-footer">
-                <div class="pull-right hidden-xs">
-                    <b>Version</b> 2.3.2
-                </div>
-                <strong>Copyright &copy; 2014-2015 <a href="http://www.google.com">Ben Li</a>.</strong> All rights
-                reserved.
-            </footer>
+
 
         </div>
-
-        <div ui-view="navbar" ng-cloak=""></div>
-
-
-         <div class="container-fluid ">
-
-
-            <div class="footer">
-                <p translate="footer">This is your footer</p>
-            </div>
+        <div class="main-footer">
+            <p translate="footer">This is your footer</p>
         </div>
-
-
+        </div>
 
         <!--
 
@@ -110,13 +93,12 @@
         <script src="bower_components/adf-widget-clock/dist/adf-widget-clock.min.js"></script>
         <script src="bower_components/angular-markdown-directive/markdown.js"></script>
         <script src="bower_components/adf-widget-news/dist/adf-widget-news.min.js"></script>
+        <script src="bower_components/showdown/compressed/Showdown.min.js"></script>
         <script src="bower_components/adf-widget-markdown/dist/adf-widget-markdown.min.js"></script>
         <script src="bower_components/Sortable/Sortable.js"></script>
         <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
         <script src="bower_components/adf-widget-weather/dist/adf-widget-weather.js"></script>
-
-        <!--<script src="bower_components/angular-dashboard-framework/dist/angular-dashboard-framework.js"></script>-->
-        <script src="widgets/angular-dashboard-framework.min.js"></script>
+        <script src="bower_components/angular-dashboard-framework/dist/angular-dashboard-framework.min.js"></script>
         <script src="bower_components/AdminLTE/dist/js/app.min.js"></script>
         <!-- endbuild -->
 
@@ -145,6 +127,8 @@
     <script src="scripts/components/interceptor/notification.interceptor.js"></script>
     <script src="scripts/components/navbar/navbar.directive.js"></script>
     <script src="scripts/components/navbar/navbar.controller.js"></script>
+    <script src="scripts/components/sidebar/sidebar.controller.js"></script>
+    <script src="scripts/components/sidebar/sidebar.directive.js"></script>
     <script src="scripts/components/user/user.service.js"></script>
     <script src="scripts/components/util/truncate.filter.js"></script>
     <script src="scripts/components/util/base64.service.js"></script>

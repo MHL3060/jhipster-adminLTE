@@ -7,11 +7,11 @@ angular.module('myFirstApp')
                 parent: 'account',
                 url: '/login',
                 data: {
-                    authorities: [], 
+                    authorities: [],
                     pageTitle: 'login.title'
                 },
                 views: {
-                    'content@': {
+                    'wrapper@': {
                         templateUrl: 'scripts/app/account/login/login.html',
                         controller: 'LoginController'
                     }
