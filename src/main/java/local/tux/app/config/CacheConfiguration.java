@@ -14,6 +14,8 @@ import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.*;
 import org.springframework.core.env.Environment;
+import org.springframework.security.core.session.SessionRegistry;
+import org.springframework.security.core.session.SessionRegistryImpl;
 
 import javax.annotation.PreDestroy;
 import javax.inject.Inject;
@@ -53,6 +55,7 @@ public class CacheConfiguration {
         config.getNetworkConfig().setPort(5701);
         config.getNetworkConfig().setPortAutoIncrement(true);
 
+        // In development, remove multicast auto-configuration
         if (env.acceptsProfiles(Constants.SPRING_PROFILE_DEVELOPMENT)) {
             System.setProperty("hazelcast.local.localAddress", "127.0.0.1");
 
@@ -63,7 +66,7 @@ public class CacheConfiguration {
         
         config.getMapConfigs().put("default", initializeDefaultMapConfig());
         config.getMapConfigs().put("local.tux.app.domain.*", initializeDomainMapConfig(jHipsterProperties));
-        config.getMapConfigs().put("my-sessions", initializeClusteredSession(jHipsterProperties));
+        config.getMapConfigs().put("clustered-http-sessions", initializeClusteredSession(jHipsterProperties));
 
         hazelcastInstance = HazelcastInstanceFactory.newHazelcastInstance(config);
 
@@ -114,7 +117,13 @@ public class CacheConfiguration {
         mapConfig.setTimeToLiveSeconds(jHipsterProperties.getCache().getTimeToLiveSeconds());
         return mapConfig;
     }
-    
+
+    /**
+    * @return the unique instance.
+    */
+    public static HazelcastInstance getHazelcastInstance() {
+        return hazelcastInstance;
+    }
 
     private MapConfig initializeClusteredSession(JHipsterProperties jHipsterProperties) {
         MapConfig mapConfig = new MapConfig();
@@ -125,9 +134,10 @@ public class CacheConfiguration {
     }
 
     /**
-    * @return the unique instance.
-    */
-    public static HazelcastInstance getHazelcastInstance() {
-        return hazelcastInstance;
+     * Use by Spring Security, to get events from Hazelcast.
+     */
+    @Bean
+    public SessionRegistry sessionRegistry() {
+        return new SessionRegistryImpl();
     }
 }

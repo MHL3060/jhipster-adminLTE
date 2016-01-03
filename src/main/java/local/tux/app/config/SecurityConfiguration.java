@@ -11,6 +11,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.session.SessionRegistry;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -47,6 +48,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Inject
     private RememberMeServices rememberMeServices;
 
+    @Inject
+    private SessionRegistry sessionRegistry;
+
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
@@ -74,11 +78,16 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
+            .sessionManagement()
+            .maximumSessions(32) // maximum number of concurrent sessions for one user
+            .sessionRegistry(sessionRegistry)
+            .and().and()
             .csrf()
             .ignoringAntMatchers("/websocket/**")
         .and()
             .addFilterAfter(new CsrfCookieGeneratorFilter(), CsrfFilter.class)
             .exceptionHandling()
+            .accessDeniedHandler(new CustomAccessDeniedHandler())
             .authenticationEntryPoint(authenticationEntryPoint)
         .and()
             .rememberMe()
@@ -97,7 +106,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .logout()
             .logoutUrl("/api/logout")
             .logoutSuccessHandler(ajaxLogoutSuccessHandler)
-            .deleteCookies("JSESSIONID", "hazelcast.sessionId")
+            .deleteCookies("JSESSIONID", "CSRF-TOKEN", "hazelcast.sessionId")
             .permitAll()
         .and()
             .headers()

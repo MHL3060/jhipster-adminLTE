@@ -9,6 +9,7 @@ import local.tux.app.repository.UserRepository;
 import local.tux.app.repository.search.UserSearchRepository;
 import local.tux.app.security.SecurityUtils;
 import local.tux.app.service.util.RandomUtil;
+import local.tux.app.web.rest.dto.ManagedUserDTO;
 import java.time.ZonedDateTime;
 import java.time.LocalDate;
 import org.slf4j.Logger;
@@ -18,6 +19,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.ZonedDateTime;
 import javax.inject.Inject;
 import java.util.*;
 
@@ -114,6 +116,35 @@ public class UserService {
         return newUser;
     }
 
+    public User createUser(ManagedUserDTO managedUserDTO) {
+        User user = new User();
+        user.setLogin(managedUserDTO.getLogin());
+        user.setFirstName(managedUserDTO.getFirstName());
+        user.setLastName(managedUserDTO.getLastName());
+        user.setEmail(managedUserDTO.getEmail());
+        if (managedUserDTO.getLangKey() == null) {
+            user.setLangKey("en"); // default language is English
+        } else {
+            user.setLangKey(managedUserDTO.getLangKey());
+        }
+        if (managedUserDTO.getAuthorities() != null) {
+            Set<Authority> authorities = new HashSet<>();
+            managedUserDTO.getAuthorities().stream().forEach(
+                authority -> authorities.add(authorityRepository.findOne(authority))
+            );
+            user.setAuthorities(authorities);
+        }
+        String encryptedPassword = passwordEncoder.encode(RandomUtil.generatePassword());
+        user.setPassword(encryptedPassword);
+        user.setResetKey(RandomUtil.generateResetKey());
+        user.setResetDate(ZonedDateTime.now());
+        user.setActivated(true);
+        userRepository.save(user);
+        userSearchRepository.save(user);
+        log.debug("Created Information for User: {}", user);
+        return user;
+    }
+
     public void updateUserInformation(String firstName, String lastName, String email, String langKey) {
         userRepository.findOneByLogin(SecurityUtils.getCurrentUser().getUsername()).ifPresent(u -> {
             u.setFirstName(firstName);
@@ -123,6 +154,14 @@ public class UserService {
             userRepository.save(u);
             userSearchRepository.save(u);
             log.debug("Changed Information for User: {}", u);
+        });
+    }
+
+    public void deleteUserInformation(String login) {
+        userRepository.findOneByLogin(login).ifPresent(u -> {
+            userRepository.delete(u);
+            userSearchRepository.delete(u);
+            log.debug("Deleted User: {}", u);
         });
     }
 

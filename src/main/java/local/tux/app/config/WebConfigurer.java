@@ -5,13 +5,12 @@ import com.codahale.metrics.servlet.InstrumentedFilter;
 import com.codahale.metrics.servlets.MetricsServlet;
 import com.hazelcast.core.HazelcastInstance;
 import com.hazelcast.web.SessionListener;
-import com.hazelcast.web.WebFilter;
+import com.hazelcast.web.spring.SpringAwareWebFilter;
 import local.tux.app.web.filter.CachingHttpHeadersFilter;
 import local.tux.app.web.filter.StaticResourcesProductionFilter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.context.embedded.ConfigurableEmbeddedServletContainer;
 import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
 import org.springframework.boot.context.embedded.MimeMappings;
@@ -31,7 +30,6 @@ import javax.servlet.*;
  * Configuration of web application with Servlet 3.0 APIs.
  */
 @Configuration
-@AutoConfigureAfter(CacheConfiguration.class)
 public class WebConfigurer implements ServletContextInitializer, EmbeddedServletContainerCustomizer {
 
     private final Logger log = LoggerFactory.getLogger(WebConfigurer.class);
@@ -72,10 +70,9 @@ public class WebConfigurer implements ServletContextInitializer, EmbeddedServlet
      */
     private void initClusteredHttpSessionFilter(ServletContext servletContext, EnumSet<DispatcherType> disps) {
         log.debug("Registering Clustered Http Session Filter");
-        disps = EnumSet.of(DispatcherType.REQUEST, DispatcherType.FORWARD, DispatcherType.ASYNC, DispatcherType.INCLUDE);
         servletContext.addListener(new SessionListener());
 
-        FilterRegistration.Dynamic hazelcastWebFilter = servletContext.addFilter("hazelcastWebFilter", new WebFilter());
+        FilterRegistration.Dynamic hazelcastWebFilter = servletContext.addFilter("hazelcastWebFilter", new SpringAwareWebFilter());
         Map<String, String> parameters = new HashMap<>();
         parameters.put("instance-name", "myFirst");
         // Name of the distributed map storing your web session objects
@@ -89,7 +86,7 @@ public class WebConfigurer implements ServletContextInitializer, EmbeddedServlet
         // on a node, entries for this session on all other nodes are invalidated.
         // You have to know how your load-balancer is configured before
         // setting this parameter. Default is true.
-        parameters.put("sticky-session", "false");
+        parameters.put("sticky-session", "true");
 
         // Name of session id cookie
         parameters.put("cookie-name", "hazelcast.sessionId");
@@ -107,7 +104,7 @@ public class WebConfigurer implements ServletContextInitializer, EmbeddedServlet
         parameters.put("shutdown-on-destroy", "true");
 
         hazelcastWebFilter.setInitParameters(parameters);
-        hazelcastWebFilter.addMappingForUrlPatterns(disps, false, "/*");
+        hazelcastWebFilter.addMappingForUrlPatterns(disps, true, "/*");
         hazelcastWebFilter.setAsyncSupported(true);
     }
 

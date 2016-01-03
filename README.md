@@ -1,4 +1,4 @@
-# Developing myFirst
+# myFirst
 
 This application was generated using JHipster, you can find documentation and help at [https://jhipster.github.io](https://jhipster.github.io).
 
@@ -46,6 +46,8 @@ Then navigate to [http://localhost:8080](http://localhost:8080) in your browser.
 Unit tests are run by [Karma][] and written with [Jasmine][]. They're located in `src/test/javascript` and can be run with:
 
     grunt test
+
+
 
 # Continuous Integration
 
