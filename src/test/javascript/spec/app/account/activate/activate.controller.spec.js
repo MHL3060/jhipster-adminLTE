@@ -1,13 +1,13 @@
 'use strict';
 
-describe('Controllers Tests ', function() {
+describe('Controller Tests', function() {
 
     beforeEach(mockApiAccountCall);
     beforeEach(mockI18nCalls);
 
     describe('ActivationController', function() {
 
-        var $scope, $httpBackend, $q, MockAuth; // actual implementations
+        var $scope, $httpBackend, $q; // actual implementations
         var MockAuth, MockStateParams; // mocks
         var createController; // local utility function
 
