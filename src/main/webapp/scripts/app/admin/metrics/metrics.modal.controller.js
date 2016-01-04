@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myFirstApp')
+angular.module('tuxAdminApp')
     .controller('MetricsModalController', function($scope, $uibModalInstance, threadDump) {
 
         $scope.threadDump = threadDump;

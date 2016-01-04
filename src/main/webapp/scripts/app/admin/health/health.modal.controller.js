@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myFirstApp')
+angular.module('tuxAdminApp')
     .controller('HealthModalController', function($scope, $uibModalInstance, currentHealth, baseName, subSystemName) {
 
         $scope.currentHealth = currentHealth;

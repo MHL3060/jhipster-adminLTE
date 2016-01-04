@@ -1,7 +1,7 @@
 {
   "name": "my-first",
   "version": "0.0.0",
-  "description": "Description for myFirst",
+  "description": "Description for tuxAdmin",
   "private": true,
   "cacheDirectories": [
     "node_modules",

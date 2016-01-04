@@ -13,7 +13,7 @@
     <artifactId>my-first</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
-    <name>myFirst</name>
+    <name>tuxAdmin</name>
 
     <repositories>
         <repository>

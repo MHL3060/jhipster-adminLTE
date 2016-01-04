@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myFirstApp')
+angular.module('tuxAdminApp')
     .controller('UserManagementDetailController', function ($scope, $stateParams, User) {
         $scope.user = {};
         $scope.load = function (login) {

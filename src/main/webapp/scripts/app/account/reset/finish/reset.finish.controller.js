@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myFirstApp')
+angular.module('tuxAdminApp')
     .controller('ResetFinishController', function ($scope, $stateParams, $timeout, Auth) {
 
         $scope.keyMissing = $stateParams.key === undefined;

@@ -46,14 +46,14 @@ jhipster:
         #allow-credentials: true
         #max-age: 1800
     mail:
-        from: myFirst@localhost
+        from: tuxAdmin@localhost
     security:
         rememberme:
             # security key (this key should be unique for your application, and kept secret)
             key: e76a2e5365e9ea616e84ffed412c6e8ec99e68d8
     swagger:
-        title: myFirst API
-        description: myFirst API documentation
+        title: tuxAdmin API
+        description: tuxAdmin API documentation
         version: 0.0.1
         termsOfServiceUrl:
         contact:

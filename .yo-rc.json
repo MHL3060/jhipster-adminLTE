@@ -1,6 +1,6 @@
 {
   "generator-jhipster": {
-    "baseName": "myFirst",
+    "baseName": "tuxAdmin",
     "packageName": "local.tux.app",
     "packageFolder": "local/tux/app",
     "authenticationType": "session",

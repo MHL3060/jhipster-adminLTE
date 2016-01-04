@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myFirstApp')
+angular.module('tuxAdminApp')
     .controller('HealthController', function ($scope, MonitoringService, $uibModal) {
         $scope.updatingHealth = true;
         $scope.separator = '.';

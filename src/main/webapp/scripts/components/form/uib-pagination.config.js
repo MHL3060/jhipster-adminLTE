@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myFirstApp')
+angular.module('tuxAdminApp')
     .config(function (uibPaginationConfig) {
         uibPaginationConfig.itemsPerPage = 20;
         uibPaginationConfig.maxSize = 5;

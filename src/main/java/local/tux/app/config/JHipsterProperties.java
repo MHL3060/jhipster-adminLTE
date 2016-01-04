@@ -203,7 +203,7 @@ public class JHipsterProperties {
 
     public static class Mail {
 
-        private String from = "myFirst@localhost";
+        private String from = "tuxAdmin@localhost";
 
         public String getFrom() {
             return from;
@@ -239,9 +239,9 @@ public class JHipsterProperties {
 
     public static class Swagger {
 
-        private String title = "myFirst API";
+        private String title = "tuxAdmin API";
 
-        private String description = "myFirst API documentation";
+        private String description = "tuxAdmin API documentation";
 
         private String version = "0.0.1";
 
@@ -384,7 +384,7 @@ public class JHipsterProperties {
 
             private int port = 2003;
 
-            private String prefix = "myFirst";
+            private String prefix = "tuxAdmin";
 
             public boolean isEnabled() {
                 return enabled;

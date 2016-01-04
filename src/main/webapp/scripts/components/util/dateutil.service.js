@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myFirstApp')
+angular.module('tuxAdminApp')
     .service('DateUtils', function ($filter) {
       this.convertLocaleDateToServer = function(date) {
         if (date) {

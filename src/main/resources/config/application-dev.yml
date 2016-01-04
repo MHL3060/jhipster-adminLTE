@@ -66,7 +66,7 @@ jhipster:
         hazelcast:
             backupCount: 1
     mail: # specific JHipster mail property, for standard properties see MailProperties
-        from: myFirst@localhost
+        from: tuxAdmin@localhost
     metrics: # DropWizard Metrics configuration, used by MetricsConfiguration
         jmx.enabled: true
         spark:
@@ -77,4 +77,4 @@ jhipster:
             enabled: false
             host: localhost
             port: 2003
-            prefix: myFirst
+            prefix: tuxAdmin

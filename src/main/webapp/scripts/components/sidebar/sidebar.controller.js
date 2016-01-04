@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myFirstApp')
+angular.module('tuxAdminApp')
     .controller('SidebarController', function ($scope, $location, $state, Auth, Principal, ENV) {
         $scope.isAuthenticated = Principal.isAuthenticated;
         $scope.username = JSON.stringify(Principal);

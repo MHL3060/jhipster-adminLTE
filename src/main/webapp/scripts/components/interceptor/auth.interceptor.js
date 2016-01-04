@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myFirstApp')
+angular.module('tuxAdminApp')
     .factory('authExpiredInterceptor', function ($rootScope, $q, $injector, localStorageService) {
         return {
             responseError: function(response) {

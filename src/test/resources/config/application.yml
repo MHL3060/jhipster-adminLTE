@@ -13,7 +13,7 @@
 spring:
     datasource:
         driver-class-name: org.h2.jdbcx.JdbcDataSource
-        url: jdbc:h2:mem:myFirst;DB_CLOSE_DELAY=-1
+        url: jdbc:h2:mem:tuxAdmin;DB_CLOSE_DELAY=-1
         name:
         username:
         password:
@@ -73,8 +73,8 @@ jhipster:
     metrics: # DropWizard Metrics configuration, used by MetricsConfiguration
         jmx.enabled: true
     swagger:
-        title: myFirst API
-        description: myFirst API documentation
+        title: tuxAdmin API
+        description: tuxAdmin API documentation
         version: 0.0.1
         termsOfServiceUrl:
         contact:

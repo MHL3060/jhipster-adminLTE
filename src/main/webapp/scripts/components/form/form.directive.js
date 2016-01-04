@@ -1,7 +1,7 @@
 /* globals $ */
 'use strict';
 
-angular.module('myFirstApp')
+angular.module('tuxAdminApp')
     .directive('showValidation', function() {
         return {
             restrict: 'A',

@@ -1,7 +1,7 @@
 /*jshint bitwise: false*/
 'use strict';
 
-angular.module('myFirstApp')
+angular.module('tuxAdminApp')
     .service('Base64', function () {
         var keyStr = 'ABCDEFGHIJKLMNOP' +
             'QRSTUVWXYZabcdef' +

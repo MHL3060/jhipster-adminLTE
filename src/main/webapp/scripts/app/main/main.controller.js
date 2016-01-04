@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myFirstApp')
+angular.module('tuxAdminApp')
     .controller('MainController', ['$scope', 'Principal', 'localStorageService', function ($scope, Principal, localStorageService) {
         Principal.identity().then(function (account) {
 

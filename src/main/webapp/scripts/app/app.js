@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myFirstApp', ['LocalStorageModule', 'tmh.dynamicLocale', 'pascalprecht.translate',
+angular.module('tuxAdminApp', ['LocalStorageModule', 'tmh.dynamicLocale', 'pascalprecht.translate',
                'ui.bootstrap', // for modal dialogs
     'ngResource', 'ui.router', 'ngCookies', 'ngAria', 'ngCacheBuster', 'ngFileUpload', 'infinite-scroll',
     'angular-loading-bar', 'adf','adf.structures.base', 'adf.widget.clock','adf.widget.markdown', 'adf.widget.news', 'adf.widget.weather'])

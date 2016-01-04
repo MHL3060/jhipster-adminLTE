@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myFirstApp')
+angular.module('tuxAdminApp')
     .controller('LogsController', function ($scope, LogsService) {
         $scope.loggers = LogsService.findAll();
 

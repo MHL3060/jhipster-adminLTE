@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myFirstApp')
+angular.module('tuxAdminApp')
     .factory('MonitoringService', function ($rootScope, $http) {
         return {
             getMetrics: function () {

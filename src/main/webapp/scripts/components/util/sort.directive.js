@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myFirstApp')
+angular.module('tuxAdminApp')
     .directive('jhSort', function () {
         return {
             restrict: 'A',

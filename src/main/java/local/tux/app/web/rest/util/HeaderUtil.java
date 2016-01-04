@@ -10,27 +10,27 @@ public class HeaderUtil {
 
     public static HttpHeaders createAlert(String message, String param) {
         HttpHeaders headers = new HttpHeaders();
-        headers.add("X-myFirstApp-alert", message);
-        headers.add("X-myFirstApp-params", param);
+        headers.add("X-tuxAdminApp-alert", message);
+        headers.add("X-tuxAdminApp-params", param);
         return headers;
     }
 
     public static HttpHeaders createEntityCreationAlert(String entityName, String param) {
-        return createAlert("myFirstApp." + entityName + ".created", param);
+        return createAlert("tuxAdminApp." + entityName + ".created", param);
     }
 
     public static HttpHeaders createEntityUpdateAlert(String entityName, String param) {
-        return createAlert("myFirstApp." + entityName + ".updated", param);
+        return createAlert("tuxAdminApp." + entityName + ".updated", param);
     }
 
     public static HttpHeaders createEntityDeletionAlert(String entityName, String param) {
-        return createAlert("myFirstApp." + entityName + ".deleted", param);
+        return createAlert("tuxAdminApp." + entityName + ".deleted", param);
     }
 
     public static HttpHeaders createFailureAlert(String entityName, String errorKey, String defaultMessage) {
         HttpHeaders headers = new HttpHeaders();
-        headers.add("X-myFirstApp-error", "error." + errorKey);
-        headers.add("X-myFirstApp-params", entityName);
+        headers.add("X-tuxAdminApp-error", "error." + errorKey);
+        headers.add("X-tuxAdminApp-params", entityName);
         return headers;
     }
 }

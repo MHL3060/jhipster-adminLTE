@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myFirstApp')
+angular.module('tuxAdminApp')
     .filter('characters', function () {
         return function (input, chars, breakOnWord) {
             if (isNaN(chars)) {

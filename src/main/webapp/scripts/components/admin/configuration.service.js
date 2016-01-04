@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myFirstApp')
+angular.module('tuxAdminApp')
     .factory('ConfigurationService', function ($rootScope, $filter, $http) {
         return {
             get: function() {

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myFirstApp')
+angular.module('tuxAdminApp')
     .controller('UserManagementController', function ($scope, User, ParseLinks, Language) {
         $scope.users = [];
         $scope.authorities = ["ROLE_USER", "ROLE_ADMIN"];

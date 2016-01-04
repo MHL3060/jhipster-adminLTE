@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myFirstApp')
+angular.module('tuxAdminApp')
     .factory('Language', function ($q, $http, $translate, LANGUAGES) {
         return {
             getCurrent: function () {

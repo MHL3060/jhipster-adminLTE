@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myFirstApp')
+angular.module('tuxAdminApp')
     .controller('RequestResetController', function ($rootScope, $scope, $state, $timeout, Auth) {
 
         $scope.success = null;

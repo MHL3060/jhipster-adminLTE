@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myFirstApp')
+angular.module('tuxAdminApp')
     .filter('capitalize', function () {
         return function (input, scope) {
             if (input != null)

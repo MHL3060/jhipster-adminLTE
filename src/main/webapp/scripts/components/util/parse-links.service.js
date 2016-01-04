@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myFirstApp')
+angular.module('tuxAdminApp')
     .service('ParseLinks', function () {
         this.parse = function (header) {
             if (header.length == 0) {

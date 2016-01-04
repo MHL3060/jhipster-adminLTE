@@ -1,7 +1,7 @@
 /* globals $ */
 'use strict';
 
-angular.module('myFirstApp')
+angular.module('tuxAdminApp')
     .directive('minbytes', function ($q) {
         function endsWith(suffix, str) {
             return str.indexOf(suffix, str.length - suffix.length) !== -1;

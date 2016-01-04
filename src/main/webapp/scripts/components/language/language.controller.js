@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myFirstApp')
+angular.module('tuxAdminApp')
     .controller('LanguageController', function ($scope, $translate, Language, tmhDynamicLocale) {
         $scope.changeLanguage = function (languageKey) {
             $translate.use(languageKey);

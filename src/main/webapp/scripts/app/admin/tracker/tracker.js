@@ -1,4 +1,4 @@
-angular.module('myFirstApp')
+angular.module('tuxAdminApp')
     .config(function ($stateProvider) {
         $stateProvider
             .state('tracker', {

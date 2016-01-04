@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myFirstApp')
+angular.module('tuxAdminApp')
     .directive('activeMenu', function($translate, $locale, tmhDynamicLocale) {
         return {
             restrict: 'A',

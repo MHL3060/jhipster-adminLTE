@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myFirstApp')
+angular.module('tuxAdminApp')
     .controller('MetricsController', function ($scope, MonitoringService, $uibModal) {
         $scope.metrics = {};
         $scope.updatingMetrics = true;

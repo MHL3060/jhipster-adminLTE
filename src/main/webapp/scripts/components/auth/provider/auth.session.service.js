@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myFirstApp')
+angular.module('tuxAdminApp')
     .factory('AuthServerProvider', function loginService($http, localStorageService, $window, Tracker) {
         return {
             login: function(credentials) {

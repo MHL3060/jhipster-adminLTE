@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myFirstApp')
+angular.module('tuxAdminApp')
 	.controller('user-managementDeleteController', function($scope, $uibModalInstance, entity, User) {
 
         $scope.user = entity;

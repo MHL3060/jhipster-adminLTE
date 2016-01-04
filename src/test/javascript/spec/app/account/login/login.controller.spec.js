@@ -2,7 +2,7 @@
 
 describe('Controller Tests', function () {
 
-    beforeEach(module('myFirstApp'));
+    beforeEach(module('tuxAdminApp'));
 
     describe('LoginController', function () {
         var $scope;

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myFirstApp')
+angular.module('tuxAdminApp')
     .factory('Principal', function Principal($q, Account, Tracker) {
         var _identity,
             _authenticated = false;

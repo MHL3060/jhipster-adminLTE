@@ -1,7 +1,7 @@
 /* globals $ */
 'use strict';
 
-angular.module('myFirstApp')
+angular.module('tuxAdminApp')
     .directive('passwordStrengthBar', function () {
         return {
             replace: true,

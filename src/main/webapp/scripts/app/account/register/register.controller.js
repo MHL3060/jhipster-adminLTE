@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myFirstApp')
+angular.module('tuxAdminApp')
     .controller('RegisterController', function ($scope, $translate, $timeout, Auth) {
         $scope.success = null;
         $scope.error = null;
