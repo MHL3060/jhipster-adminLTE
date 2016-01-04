@@ -47,11 +47,7 @@
     "angular-cookies": "1.4.8",
     "jquery": "2.1.4",
     "angular-bootstrap": "0.14.3",
-    "bootstrap": "3.3.5",
-    "Sortable": "1.2.1",
     "angular-translate": "2.8.1",
-    "angular-sanitize": "1.4.8",
-    "angular-resource": "1.4.8",
     "angular-dashboard-framework": "~0.11.0"
   }
 }
