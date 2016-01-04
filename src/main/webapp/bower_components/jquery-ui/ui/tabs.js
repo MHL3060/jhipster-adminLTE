@@ -1,5 +1,5 @@
 /*!
- * jQuery UI Tabs 1.11.4
+ * jQuery UI Tabs 1.11.3
  * http://jqueryui.com
  *
  * Copyright jQuery Foundation and other contributors
@@ -25,7 +25,7 @@
 }(function( $ ) {
 
 return $.widget( "ui.tabs", {
-	version: "1.11.4",
+	version: "1.11.3",
 	delay: 300,
 	options: {
 		active: null,
@@ -817,18 +817,6 @@ return $.widget( "ui.tabs", {
 			eventData = {
 				tab: tab,
 				panel: panel
-			},
-			complete = function( jqXHR, status ) {
-				if ( status === "abort" ) {
-					that.panels.stop( false, true );
-				}
-
-				tab.removeClass( "ui-tabs-loading" );
-				panel.removeAttr( "aria-busy" );
-
-				if ( jqXHR === that.xhr ) {
-					delete that.xhr;
-				}
 			};
 
 		// not remote
@@ -846,21 +834,28 @@ return $.widget( "ui.tabs", {
 			panel.attr( "aria-busy", "true" );
 
 			this.xhr
-				.done(function( response, status, jqXHR ) {
+				.success(function( response ) {
 					// support: jQuery <1.8
 					// http://bugs.jquery.com/ticket/11778
 					setTimeout(function() {
 						panel.html( response );
 						that._trigger( "load", event, eventData );
-
-						complete( jqXHR, status );
 					}, 1 );
 				})
-				.fail(function( jqXHR, status ) {
+				.complete(function( jqXHR, status ) {
 					// support: jQuery <1.8
 					// http://bugs.jquery.com/ticket/11778
 					setTimeout(function() {
-						complete( jqXHR, status );
+						if ( status === "abort" ) {
+							that.panels.stop( false, true );
+						}
+
+						tab.removeClass( "ui-tabs-loading" );
+						panel.removeAttr( "aria-busy" );
+
+						if ( jqXHR === that.xhr ) {
+							delete that.xhr;
+						}
 					}, 1 );
 				});
 		}

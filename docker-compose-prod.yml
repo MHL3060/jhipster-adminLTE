@@ -1,21 +1,20 @@
-jhipster-prod-elasticsearch:
-  container_name: myFirst-prod-elasticsearch
+myfirst-elasticsearch:
+  container_name: myfirst-elasticsearch
   image: elasticsearch:1.7.3
   # volumes:
-  # - ~/volumes/jhipster/myFirst/prod-elasticsearch/:/usr/share/elasticsearch/data/
+  #   - ~/volumes/jhipster/myFirst/elasticsearch/:/usr/share/elasticsearch/data/
   ports:
-  - "9200:9200"
-  - "9300:9300"
-jhipster-prod-mysql:
-  container_name: myFirst-prod-mysql
+    - "9200:9200"
+    - "9300:9300"
+myfirst-mysql:
+  container_name: myfirst-mysql
   image: mysql:5.7.9
   # volumes:
-  # - ~/volumes/jhipster/myFirst/prod-mysql/:/var/lib/mysql/
+  #   - ~/volumes/jhipster/myFirst/mysql/:/var/lib/mysql/
   environment:
-  - MYSQL_USER=root
-  - MYSQL_ALLOW_EMPTY_PASSWORD=yes
-  - MYSQL_DATABASE=myfirst
+    - MYSQL_USER=root
+    - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+    - MYSQL_DATABASE=myfirst
   ports:
-  - "3306:3306"
+    - "3306:3306"
   command: mysqld --lower_case_table_names=1
-

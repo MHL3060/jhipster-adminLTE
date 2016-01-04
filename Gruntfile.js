@@ -1,4 +1,4 @@
-// Generated on 2015-11-15 using generator-jhipster 2.23.1
+// Generated on 2016-01-03 using generator-jhipster 2.26.2
 'use strict';
 var fs = require('fs');
 
@@ -8,7 +8,13 @@ var parseVersionFromPomXml = function() {
     var version;
     var pomXml = fs.readFileSync('pom.xml', "utf8");
     parseString(pomXml, function (err, result){
-        version = result.project.version[0];
+        if (result.project.version && result.project.version[0]) {
+            version = result.project.version[0];
+        } else if (result.project.parent && result.project.parent[0] && result.project.parent[0].version && result.project.parent[0].version[0]) {
+            version = result.project.parent[0].version[0]
+        } else {
+            throw new Error('pom.xml is malformed. No version is defined');
+        }
     });
     return version;
 };
@@ -399,5 +405,6 @@ module.exports = function (grunt) {
         'buildcontrol:openshift'
     ]);
 
+    
     grunt.registerTask('default', ['serve']);
 };

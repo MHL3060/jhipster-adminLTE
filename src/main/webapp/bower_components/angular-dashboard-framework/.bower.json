@@ -1,27 +1,33 @@
 {
   "name": "angular-dashboard-framework",
-  "version": "0.10.0",
+  "version": "0.11.0",
+  "license": "MIT",
+  "authors": [
+    "Sebastian Sdorra"
+  ],
   "main": [
     "dist/angular-dashboard-framework.js",
     "dist/angular-dashboard-framework.css"
   ],
   "ignore": [
+    ".git",
     ".tmp",
     "dist/docs",
+    "dist/reports",
     "dist/sample",
-    "e2e",
     "node_modules",
     "sample",
     "src",
+    "test",
     ".bowerrc",
     ".editorconfig",
     ".gitignore",
     ".gitmodules",
     ".jshintrc",
+    ".travis.yml",
     "bower.json",
     "gulpfile.js",
-    "package.json",
-    "protractor.conf.js"
+    "package.json"
   ],
   "keywords": [
     "dashboard",
@@ -32,28 +38,28 @@
   ],
   "dependencies": {
     "angular": ">=1.2",
-    "angular-bootstrap": "^0.13.3",
-    "bootstrap": "3.3.5",
-    "Sortable": "1.2.1"
+    "angular-bootstrap": "^0.14.3",
+    "bootstrap": "^3.3.6",
+    "Sortable": "^1.2.1"
   },
   "devDependencies": {
     "angular-mocks": ">=1.2",
     "angular-scenario": ">=1.2",
     "angular-route": ">=1.2",
-    "angular-local-storage": "0.1.5",
-    "es5-shim": "~2.0.8"
+    "angular-local-storage": ">=0.2",
+    "es5-shim": ">=4.1"
   },
   "resolutions": {
     "angular": ">=1.2"
   },
   "homepage": "https://github.com/angular-dashboard-framework/angular-dashboard-framework",
-  "_release": "0.10.0",
+  "_release": "0.11.0",
   "_resolution": {
     "type": "version",
-    "tag": "v0.10.0",
-    "commit": "81d7ae361f216212c86bcaee7f2cbfa6e2b7c7d4"
+    "tag": "v0.11.0",
+    "commit": "4ffa047811151b95de3b342e3fd5921bafbac6ee"
   },
   "_source": "git://github.com/angular-dashboard-framework/angular-dashboard-framework.git",
-  "_target": "~0.10.0",
+  "_target": "~0.11.0",
   "_originalSource": "angular-dashboard-framework"
 }

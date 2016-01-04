@@ -12,7 +12,6 @@ module.exports = function (config) {
         // list of files / patterns to load in the browser
         files: [
             // bower:js
-            'main/webapp/bower_components/modernizr/modernizr.js',
             'main/webapp/bower_components/jquery/dist/jquery.js',
             'main/webapp/bower_components/angular/angular.js',
             'main/webapp/bower_components/angular-aria/angular-aria.js',
@@ -40,7 +39,7 @@ module.exports = function (config) {
             // endbower
             'main/webapp/scripts/app/app.js',
             'main/webapp/scripts/app/**/*.js',
-            'main/webapp/scripts/components/**/*.{js,html}',
+            'main/webapp/scripts/components/**/*.+(js|html)',
             'test/javascript/spec/helpers/module.js',
             'test/javascript/spec/helpers/httpBackend.js',
             'test/javascript/**/!(karma.conf).js'

@@ -16,9 +16,7 @@ angular.module('myFirstApp')
             }).then(function () {
                 $scope.authenticationError = false;
                 if ($rootScope.previousStateName === 'register') {
-                    window.myState = $state;
                     $state.go('home');
-
                 } else {
                     $rootScope.back();
                 }
